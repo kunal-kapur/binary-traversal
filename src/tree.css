@@ -1,0 +1,45 @@
+body {
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.binary-tree {
+    display: flex;
+    align-self: center;
+    justify-content: space-evenly;
+}
+
+
+.binary-tree .node-area .node {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+    background-color: mediumspringgreen;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.binary-tree .node-area {
+    margin: none;
+    width: fit-content;
+    display: flex;
+    justify-self: center;
+
+}
+
+.binary-tree .node-area.left {
+    padding-top: 100px;
+    justify-self: flex-start;
+}
+
+.binary-tree .node-area.right {
+    padding-top: 100px;
+    justify-self: flex-end;
+
+}

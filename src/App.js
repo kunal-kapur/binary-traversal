@@ -20,8 +20,13 @@ function printTree(root) {
     return
   }
   console.log(root.val);
-  printTree(root.left);
-  printTree(root.right);
+
+  if (root.left != null) {
+    printTree(root.left);
+  }
+  if (root.right != null) {
+    printTree(root.right);
+  }
 
 }
 
@@ -66,11 +71,18 @@ function buildOrderedTree(nums) {
     bottom = random + 1;
     top = bottom + 3;
   }
-  printTree(root);
+  //printTree(root);
+  return root
+}
+
+
+function renderTree() {
+  const root = buildOrderedTree(10);
+
 
 }
 
-buildOrderedTree(10);
+
 
 function App() {
   return (
