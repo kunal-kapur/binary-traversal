@@ -14,6 +14,17 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
+function printTree(root) {
+
+  if (root == null) {
+    return
+  }
+  console.log(root.val);
+  printTree(root.left);
+  printTree(root.right);
+
+}
+
 function insertNode(root, givenNode) {
   if (root == null) {
     return
@@ -28,38 +39,38 @@ function insertNode(root, givenNode) {
       currNode = currNode.left;
     }
     else {
-      if (currNode.left == null) {
-        currNode.left = givenNode;
+      if (currNode.right == null) {
+        currNode.right = givenNode;
         break;
       }
-      currNode = currNode.left;
-
+      currNode = currNode.right;
     }
   }
 
 }
 
 function buildOrderedTree(nums) {
-  nodeVals = [];
-  bottom = 0;
-  top = 3;
+  const nodeVals = [];
+  let bottom = 4;
+  let top = 7;
 
-  prevNode = null;
+  let prevNode = null;
 
-
-  for (let i = 0; i < nums; i++) {
+  const root = new treeNode(null, null, Math.floor(getRandomArbitrary(0, 3)));
+  for (let i = 1; i < nums; i++) {
     let random = getRandomArbitrary(bottom, top);
 
-    const currNode = new treeNode(null, null, random);
-    if (i == 0) {
+    let currNode = new treeNode(null, null, Math.floor(random));
 
-    }
-
-    bottom = random + 1
-    top = bottom + 3
+    insertNode(root, currNode);
+    bottom = random + 1;
+    top = bottom + 3;
   }
+  printTree(root);
 
 }
+
+buildOrderedTree(10);
 
 function App() {
   return (
