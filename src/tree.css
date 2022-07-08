@@ -11,6 +11,7 @@ body {
     display: flex;
     align-self: center;
     justify-content: space-evenly;
+
 }
 
 
@@ -25,21 +26,96 @@ body {
 
 }
 
-.binary-tree .node-area {
-    margin: none;
-    width: fit-content;
-    display: flex;
+.node-area.left {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+}
+
+.node-area.right {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
+
+}
+
+.node {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
     justify-self: center;
-
 }
 
-.binary-tree .node-area.left {
-    padding-top: 100px;
+.binary-tree .node-area {
+    display: grid;
+    justify-content: center;
+}
+
+.node-area.child {
+    grid-template-columns: 0.3fr 0.3fr 0.3fr;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr;
+}
+
+.node-area.child.left .line {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
     justify-self: flex-start;
+    align-self: flex-end;
+    height: 50px;
+    width: 30px;
+    background:
+        linear-gradient(to top left,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) calc(50% - 0.8px),
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) calc(50% + 0.8px),
+            rgba(0, 0, 0, 0) 100%);
 }
 
-.binary-tree .node-area.right {
-    padding-top: 100px;
-    justify-self: flex-end;
+.node-area.child.right .line {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    justify-self: flex-start;
+    align-self: flex-start;
+    height: 50px;
+    width: 30px;
+    background:
+        linear-gradient(to top right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 0) calc(50% - 0.8px),
+            rgba(0, 0, 0, 1) 50%,
+            rgba(0, 0, 0, 0) calc(50% + 0.8px),
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.node-area.child .node {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.node-area.child .node-area {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+
+}
+
+
+
+
+.node-area div {
+    flex-direction: column;
 
 }
