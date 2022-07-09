@@ -1,11 +1,9 @@
-
-
-vals = document.querySelectorAll(".node-area");
+let vals = document.querySelectorAll(".node-area");
 
 
 for (let i = 0; i < vals.length; i++) {
 
-    node = vals[i].querySelector(":scope > .node");
+    let node = vals[i].querySelector(":scope > .node");
     console.log(node);
     console.log(vals[i]);
     node.style.backgroundColor = "purple";

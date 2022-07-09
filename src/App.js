@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import './tree.css';
 
 
 class treeNode {
@@ -14,21 +15,6 @@ function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-function printTree(root) {
-
-  if (root == null) {
-    return
-  }
-  console.log(root.val);
-
-  if (root.left != null) {
-    printTree(root.left);
-  }
-  if (root.right != null) {
-    printTree(root.right);
-  }
-
-}
 
 function insertNode(root, givenNode) {
   if (root == null) {
@@ -61,9 +47,9 @@ function buildOrderedTree(nums) {
 
   let prevNode = null;
 
-  const root = new treeNode(null, null, Math.floor(getRandomArbitrary(0, 3)));
+  const root = new treeNode(null, null, Math.floor(getRandomArbitrary(0, 50)));
   for (let i = 1; i < nums; i++) {
-    let random = getRandomArbitrary(bottom, top);
+    let random = getRandomArbitrary(0, 50);
 
     let currNode = new treeNode(null, null, Math.floor(random));
 
@@ -76,11 +62,64 @@ function buildOrderedTree(nums) {
 }
 
 
-function renderTree() {
-  const root = buildOrderedTree(10);
+function printTree(root, direction) {
+
+  if (root == null) {
+    return
+  }
+
+  console.log(root.val);
+
+  let name = "node-area"
+
+  if (direction == 1) {
+    name += " left"
+  }
+  else if (direction == 2) {
+    name += " right"
+  }
+
+  return (
+
+    <div className={name}>
+
+      {direction > 0 &&
+        <div className="line-wrapper">
+          <div className="line"></div>
+        </div>}
+
+
+      <div className="node-container">
+        <div className="node">{direction}</div>
+      </div>
+
+      {root.left != null && printTree(root.left, 1)}
+
+      {root.right != null && printTree(root.right, 2)}
+    </div>
+  );
 
 
 }
+
+function preorder(root) {
+  if (root == null) {
+    return;
+  }
+  console.log(root.val);
+  preorder(root.left);
+  preorder(root.right);
+
+}
+
+
+function RenderTree() {
+  const root = buildOrderedTree(5);
+  preorder(root);
+  return printTree(root, 0);
+}
+
+
 
 
 
@@ -105,4 +144,5 @@ function App() {
   );
 }
 
-export default App;
+export { App, RenderTree };
+
