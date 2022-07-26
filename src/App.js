@@ -83,14 +83,16 @@ function printTree(root, direction) {
 
     <div className={name}>
 
-      {direction > 0 &&
-        <div className="line-wrapper">
-          <div className="line"></div>
-        </div>}
 
 
       <div className="node-container">
-        <div className="node">{direction}</div>
+        <div className="node">{root.val}</div>
+
+        {direction == 1 &&
+          <div className="line-wrapper left"></div>}
+
+        {direction == 2 && <div className="line-wrapper right"></div>}
+
       </div>
 
       {root.left != null && printTree(root.left, 1)}
