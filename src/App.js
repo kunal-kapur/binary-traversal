@@ -80,43 +80,40 @@ function printTree(root, direction) {
   }
 
   return (
-
-    <div className={name}>
-
-
-
+    <div className={name} id={root.val}>
       <div className="node-container">
         <div className="node">{root.val}</div>
-
         {direction == 1 &&
           <div className="line-wrapper left"></div>}
 
         {direction == 2 && <div className="line-wrapper right"></div>}
-
       </div>
-
       {root.left != null && printTree(root.left, 1)}
 
       {root.right != null && printTree(root.right, 2)}
     </div>
   );
-
-
 }
 
 function preorder(root) {
   if (root == null) {
     return;
   }
-  console.log(root.val);
+  setTimeout(null);
+  //root.style.color = "mediumspringgreen";
   preorder(root.left);
   preorder(root.right);
 
 }
 
+setTimeout(function () {
+
+}, 1000);
+
 
 function RenderTree() {
   const root = buildOrderedTree(5);
+  console.log(root);
   preorder(root);
   return printTree(root, 0);
 }
