@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Summary
+
+This project makes use of the properties of REACT components to generate a binary tree 
+
+# Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
